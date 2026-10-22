@@ -6638,5 +6638,25 @@
     "checked_on": "2026-10-22",
     "review": "First-party implementation and Windows validation 2026-10-22: commit 0ba60bc84c4727147723b6c275eeae4cbd5336fc, 15 graph/real-capture checks plus 4 importer checks; event leak 1 to 25 to 1, stable cache 4; UI and portable runtime smoke checks; exact-source GitHub CI run 39753330962 passed. MIT reader provenance and package notices checked. Not a security audit; ARM64/x86, older runtimes and large/sampled heaps unvalidated.",
     "http_status": "200"
+  },
+  {
+    "name": "three.js",
+    "url": "https://github.com/mrdoob/three.js",
+    "category": "Graphics multimedia scientific and geospatial",
+    "purpose": "MIT JavaScript 3D renderer; bundle modules locally for offline WebGL2 games. Native Android wrappers still require current WebView and device-specific GPU, lifecycle and touch testing.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Frostline project check: official documentation read; npm 0.186.1 MIT metadata/integrity and bundled LICENSE inspected; rendered touch UI and software-WebGL browser tests passed. Physical Android device untested.",
+    "http_status": "200"
+  },
+  {
+    "name": "Android local WebView content",
+    "url": "https://developer.android.com/develop/ui/views/layout/webapps/load-local-content",
+    "category": "Android APK development and analysis",
+    "purpose": "Official guidance for bundling HTML/JS/CSS inside Android apps; use an app-owned HTTPS origin and controlled asset loading, prohibit external navigation, and verify offline startup and WebView lifecycle.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official load-in-app-content documentation read for an offline game shell; local asset packaging, source restriction and no-network manifest checked. Physical-device lifecycle and startup remain to be tested.",
+    "http_status": "200"
   }
 ]
