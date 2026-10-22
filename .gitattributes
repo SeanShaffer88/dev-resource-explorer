@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+site/data/resources.json -text
+site/data/CATALOG-LICENSE.txt -text

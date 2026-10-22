@@ -1,0 +1,15 @@
+{
+  "name": "dev-resource-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A fast, accessible explorer for Sean Shaffer's development resource catalog.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test",
+    "check": "node scripts/check.mjs",
+    "sync": "node scripts/sync-catalog.mjs"
+  }
+}

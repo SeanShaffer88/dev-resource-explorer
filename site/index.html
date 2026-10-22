@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find your next building block. Explore Sean Shaffer's curated catalog of development tools, libraries, SDKs, and APIs.">
+  <meta name="theme-color" content="#20342e">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Dev Resource Explorer — Find your next building block</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to resources</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Dev Resource Explorer home"><img src="./favicon.svg" width="36" height="36" alt=""><span>dev<span class="brand-light"> / </span>resources<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#results" class="nav-current">Explore</a>
+      <button id="about-button" class="text-button">About the catalog</button>
+      <a class="github-link" href="https://github.com/SeanShaffer88/dev-resource-explorer" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-main">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A field guide for people who build</p>
+        <h1 id="hero-title">Your next great idea.<br><span>Meet its building blocks.</span></h1>
+        <p class="hero-description">Useful tools, libraries, SDKs, and APIs. One thoughtfully curated<br class="desktop-break"> collection, ready for whatever you’re making next.</p>
+      </div>
+      <div class="catalog-note">
+        <span class="note-mark" aria-hidden="true">{ … }</span>
+        <p>Less searching.<br>More building.</p>
+        <a href="https://github.com/SeanShaffer88/useful-dev-resources" target="_blank" rel="noopener noreferrer">Curated by Sean Shaffer <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-bottom"><div class="stats" aria-label="Catalog statistics"><span><strong id="total-resources">—</strong> resources</span><span><strong id="total-categories">—</strong> categories</span><span class="open-label"><span aria-hidden="true">↗</span> Open collection</span></div><span class="snapshot">Catalog snapshot <time id="snapshot-date">loading…</time></span></div>
+    </section>
+    <section class="search-zone" aria-label="Find resources">
+      <form id="search-form" role="search">
+        <label class="search-box" for="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" aria-label="Search resources" placeholder="What are you building? Search tools, languages, or ideas…" autocomplete="off" maxlength="300"><kbd aria-hidden="true">/</kbd></label>
+      </form>
+      <div class="search-suggestions"><span>Try a topic</span><button data-query="SQLite">SQLite</button><button data-query="testing">Testing</button><button data-query="Android">Android</button><button data-query="Windows">Windows</button><span class="search-hint">Find a starting point. Make it your own.</span></div>
+    </section>
+    <div class="workspace">
+      <button id="filter-toggle" class="secondary-button mobile-filter" aria-expanded="false" aria-controls="sidebar">Browse categories <span aria-hidden="true">↓</span></button>
+      <aside class="sidebar" id="sidebar" aria-label="Resource categories">
+        <div class="sidebar-heading"><h2>YOUR LIBRARY</h2><span aria-hidden="true">↘</span></div>
+        <button class="library-button active" id="all-resources" aria-pressed="true"><span><span aria-hidden="true">▦</span> All resources</span><span id="all-count">—</span></button>
+        <button class="library-button" id="saved-resources" aria-pressed="false"><span><span aria-hidden="true">☆</span> Saved resources</span><span id="saved-count">0</span></button>
+        <div class="category-header"><h2>CATEGORIES</h2><span id="category-count"></span></div>
+        <label class="sr-only" for="category-search">Find a category</label><input id="category-search" class="category-search" type="search" placeholder="Find a category…">
+        <div id="categories" class="category-list"></div>
+        <p class="sidebar-footnote">A map of possibilities.<br>Always check a resource’s fit<br>before adopting it.</p>
+      </aside>
+      <section id="results" class="results" aria-labelledby="results-heading" tabindex="-1">
+        <div class="results-top"><div><p class="eyebrow small">THE COLLECTION</p><h2 id="results-heading">Explore the possibilities<span>.</span></h2></div><button id="share-button" class="text-button share-button" aria-label="Copy link to this search">Share search <span aria-hidden="true">↗</span></button></div>
+        <div class="filter-bar">
+          <div class="topic-filters"><label>Platform topic<select id="platform" aria-label="Platform topic"><option value="">Any platform</option></select></label><label>Language topic<select id="language" aria-label="Language topic"><option value="">Any language</option></select></label><label>Collection<select id="collection" aria-label="Collection"><option value="">All collections</option></select></label></div>
+          <label class="sort-label">Sort by<select id="sort" aria-label="Sort by"><option value="featured">Featured</option><option value="name">Name: A–Z</option><option value="recent">Research date</option></select></label>
+        </div>
+        <div class="result-meta"><p id="result-count" role="status" aria-live="polite">Loading the collection…</p><button id="clear-filters" class="text-button" hidden>Clear filters <span aria-hidden="true">×</span></button></div>
+        <div id="active-filters" class="active-filters" aria-label="Active filters"></div>
+        <p id="storage-notice" class="notice" hidden>Browser storage is unavailable. Saved resources will last for this visit only.</p>
+        <div id="resource-grid" class="resource-grid" aria-busy="true"></div>
+        <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3 id="empty-title">No resources found</h3><p id="empty-description">Try a broader search or remove a filter.</p><button id="empty-reset" class="primary-button">Reset filters</button></div>
+        <div id="load-error" class="empty-state" hidden><h3>The catalog couldn’t load.</h3><p>Please reload the page, or browse the source catalog on GitHub.</p><a href="https://github.com/SeanShaffer88/useful-dev-resources">Open the source catalog ↗</a></div>
+        <div class="load-more-wrap"><button id="load-more" class="secondary-button" hidden>Load more resources <span aria-hidden="true">↓</span></button><p id="shown-count"></p></div>
+        <div class="collection-footer"><span aria-hidden="true">✳</span><p><strong>Good research is a starting point.</strong> These are curated references, not endorsements. Topic tags help discovery; they don’t certify compatibility. Read each resource’s notes before choosing it.</p></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="./">dev / resources.</a><p>Built for curiosity. Shared for everyone.</p><button id="footer-about" class="text-button">About &amp; data sources</button><a href="https://github.com/SeanShaffer88/useful-dev-resources/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Suggest a resource <span aria-hidden="true">↗</span></a></footer>
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-top"><span class="eyebrow">RESOURCE NOTES</span><button class="close-dialog" aria-label="Close resource details">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-top"><span class="eyebrow">ABOUT THE COLLECTION</span><button class="close-dialog" aria-label="Close about dialog">×</button></div><h2 id="about-title">A useful place to start.</h2><p>Dev Resource Explorer makes Sean Shaffer’s open development resource catalog easier to browse. It brings together general software, Windows development, and Android APK research.</p><p>Resources with the same URL appear as one card. Their original catalog entries, categories, research dates, and caveats remain available in the details.</p><h3>Understand the evidence</h3><p>A catalog snapshot date says when this copy was imported. A research date belongs to the original entry. Neither guarantees current maintenance, security, licensing, or platform support. Platform and language topics are inferred from catalog text, not validated compatibility claims.</p><h3>Your saved resources stay here</h3><p>Bookmarks are saved in this browser. There are no accounts, tracking scripts, or external fonts. Shared search links include filters, but never your bookmarks. GitHub provides hosting and applies its own service policies.</p><div id="about-provenance"></div><p><a href="https://github.com/SeanShaffer88/useful-dev-resources" target="_blank" rel="noopener noreferrer">Browse the source catalog ↗</a></p></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="noscript">This explorer uses JavaScript for search and filters. You can <a href="https://github.com/SeanShaffer88/useful-dev-resources">browse the complete catalog on GitHub</a> without it.</p></noscript>
+</body>
+</html>
