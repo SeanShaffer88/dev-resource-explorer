@@ -14,7 +14,7 @@
 <body>
   <a class="skip-link" href="#results">Skip to resources</a>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Dev Resource Explorer home"><img src="./favicon.svg" width="36" height="36" alt=""><span>dev<span class="brand-light"> / </span>resources<span class="brand-dot">.</span></span></a>
+    <a class="brand" href="./" aria-label="dev / resources. — Dev Resource Explorer home"><img src="./favicon.svg" width="36" height="36" alt=""><span>dev<span class="brand-light"> / </span>resources<span class="brand-dot">.</span></span></a>
     <nav aria-label="Main navigation">
       <a href="#results" class="nav-current">Explore</a>
       <button id="about-button" class="text-button">About the catalog</button>
@@ -33,7 +33,7 @@
         <p>Less searching.<br>More building.</p>
         <a href="https://github.com/SeanShaffer88/useful-dev-resources" target="_blank" rel="noopener noreferrer">Curated by Sean Shaffer <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="hero-bottom"><div class="stats" aria-label="Catalog statistics"><span><strong id="total-resources">—</strong> resources</span><span><strong id="total-categories">—</strong> categories</span><span class="open-label"><span aria-hidden="true">↗</span> Open collection</span></div><span class="snapshot">Catalog snapshot <time id="snapshot-date">loading…</time></span></div>
+      <div class="hero-bottom"><div class="stats" role="group" aria-label="Catalog statistics"><span><strong id="total-resources">—</strong> resources</span><span><strong id="total-categories">—</strong> categories</span><span class="open-label"><span aria-hidden="true">↗</span> Open collection</span></div><span class="snapshot">Catalog snapshot <time id="snapshot-date">loading…</time></span></div>
     </section>
     <section class="search-zone" aria-label="Find resources">
       <form id="search-form" role="search">
@@ -53,13 +53,13 @@
         <p class="sidebar-footnote">A map of possibilities.<br>Always check a resource’s fit<br>before adopting it.</p>
       </aside>
       <section id="results" class="results" aria-labelledby="results-heading" tabindex="-1">
-        <div class="results-top"><div><p class="eyebrow small">THE COLLECTION</p><h2 id="results-heading">Explore the possibilities<span>.</span></h2></div><button id="share-button" class="text-button share-button" aria-label="Copy link to this search">Share search <span aria-hidden="true">↗</span></button></div>
+        <div class="results-top"><div><p class="eyebrow small">THE COLLECTION</p><h2 id="results-heading">Explore the possibilities<span>.</span></h2></div><button id="share-button" class="text-button share-button" aria-label="Share search: copy link to this search">Share search <span aria-hidden="true">↗</span></button></div>
         <div class="filter-bar">
           <div class="topic-filters"><label>Platform topic<select id="platform" aria-label="Platform topic"><option value="">Any platform</option></select></label><label>Language topic<select id="language" aria-label="Language topic"><option value="">Any language</option></select></label><label>Collection<select id="collection" aria-label="Collection"><option value="">All collections</option></select></label></div>
           <label class="sort-label">Sort by<select id="sort" aria-label="Sort by"><option value="featured">Featured</option><option value="name">Name: A–Z</option><option value="recent">Research date</option></select></label>
         </div>
         <div class="result-meta"><p id="result-count" role="status" aria-live="polite">Loading the collection…</p><button id="clear-filters" class="text-button" hidden>Clear filters <span aria-hidden="true">×</span></button></div>
-        <div id="active-filters" class="active-filters" aria-label="Active filters"></div>
+        <div id="active-filters" class="active-filters" role="group" aria-label="Active filters"></div>
         <p id="storage-notice" class="notice" hidden>Browser storage is unavailable. Saved resources will last for this visit only.</p>
         <div id="resource-grid" class="resource-grid" aria-busy="true"></div>
         <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3 id="empty-title">No resources found</h3><p id="empty-description">Try a broader search or remove a filter.</p><button id="empty-reset" class="primary-button">Reset filters</button></div>

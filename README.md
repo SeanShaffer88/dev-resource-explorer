@@ -20,7 +20,7 @@ The initial snapshot contains **664 source entries and 660 distinct resource URL
 
 ## Run locally
 
-Install [Node.js](https://nodejs.org/) 22 or later, then:
+Install [Node.js](https://nodejs.org/) 22.12 or later (24 recommended), then:
 
 ```sh
 git clone https://github.com/SeanShaffer88/dev-resource-explorer.git
@@ -28,16 +28,23 @@ cd dev-resource-explorer
 npm start
 ```
 
-Open the printed local URL, normally `http://127.0.0.1:4173`. There are **no packages to install and no build step**. The site itself only requires a modern browser and a static HTTP server. Opening `index.html` with a `file:` URL is unsupported because the browser needs to fetch local JSON and JavaScript modules.
+Open the printed local URL, normally `http://127.0.0.1:4173`. Running the site requires **no package installation and no build step**. Browser tests have separate development dependencies. The site itself only requires a modern browser and a static HTTP server. Opening `index.html` with a `file:` URL is unsupported because the browser needs to fetch local JSON and JavaScript modules.
 
 ## Validate
 
 ```sh
 npm test
 npm run check
+
+# Browser and accessibility regression tests (first install)
+npm ci
+npx playwright install chromium firefox webkit
+npm run test:browser
 ```
 
 Node’s built-in test runner checks search, composed filters, duplicate preservation, sorting, query URLs, bookmark recovery, inferred tags, and unsafe link rejection. The check script verifies the catalog SHA-256, source metadata, license, asset paths, duplicate HTML IDs, and common accidental credential/path patterns. These checks do not audit the linked resources or replace a security review.
+
+Playwright exercises user journeys in Chromium, Firefox, and WebKit, including keyboard navigation, saved resources, failed loads, shared searches, and four layout widths. axe checks WCAG A/AA rules through 2.2 in selected states. CI runs these checks on application pushes and pull requests and retains reports for 14 days. See [browser testing and accessibility scope](docs/browser-testing.md) for setup, coverage, failure triage, and the manual checklist. Automated WebKit coverage is not a Safari or real-device test, and automated accessibility checks do not replace screen-reader review.
 
 ## Automatic catalog sync
 
@@ -95,6 +102,8 @@ site/                  Deployable static website
   data/                Exact source snapshot, provenance, and catalog license
 scripts/               Local server, import, and validation commands
 test/                  Node built-in test suite
+e2e/                   Playwright journeys and axe accessibility checks
+playwright.config.js   Browser matrix, local Pages subpath, and reports
 .github/workflows/     Validation and GitHub Pages publication
 docs/                  Screenshot and validation record
 ```

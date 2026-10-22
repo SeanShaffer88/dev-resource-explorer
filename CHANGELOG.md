@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add browser regression coverage in Chromium, Firefox, and WebKit, with axe accessibility checks, responsive layouts, keyboard flows, storage/clipboard failures, and real-catalog loading under the Pages subpath.
+- Run browser checks in CI with downloadable reports, screenshots, and traces; keep all testing dependencies out of the deployed site.
+- Improve muted text contrast, match accessible names to visible branding and sharing text, and give named control groups explicit semantics.
+- Include visible search-chip text in its accessible name and wrap dialog keyboard focus consistently across browser engines.
 - Automatically check the source catalog every 15 minutes on GitHub, validate changes, commit snapshots, and republish changed content.
 - Preserve import dates for unchanged data and retry missing or stale deployments using a public content fingerprint.
 - Retain the last good snapshot on failed validation or license changes; keep quiet repositories active with maintenance commits after 45 days.

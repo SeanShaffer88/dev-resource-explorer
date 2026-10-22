@@ -99,8 +99,10 @@ function renderChips() {
   for (const key of ['q', 'category', 'platform', 'language', 'collection', 'saved']) {
     if (!state[key]) continue;
     const value = key === 'saved' ? 'Saved only' : key === 'collection' ? labelFor(state[key]) : state[key];
-    const button = node('button', 'filter-chip', key === 'q' ? `Search: ${value}` : value);
-    button.append(node('span', '', '×')); button.setAttribute('aria-label', `Remove ${key} filter: ${value}`);
+    const label = key === 'q' ? `Search: ${value}` : value;
+    const button = node('button', 'filter-chip', label);
+    const dismiss = node('span', '', '×'); dismiss.setAttribute('aria-hidden', 'true');
+    button.append(dismiss); button.setAttribute('aria-label', `Remove filter: ${label}`);
     button.addEventListener('click', () => { state[key] = DEFAULT_STATE[key]; update(); $('search').focus(); }); fragment.append(button);
   }
   $('active-filters').replaceChildren(fragment);
@@ -157,6 +159,19 @@ $('about-button').addEventListener('click', () => $('about-dialog').showModal())
 $('footer-about').addEventListener('click', () => $('about-dialog').showModal());
 for (const dialog of document.querySelectorAll('dialog')) {
   dialog.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
+  // Keep Tab at the dialog boundaries consistent across browser focus models.
+  // Native showModal/close still provide inert background content and Escape/return focus.
+  dialog.addEventListener('keydown', event => {
+    if (event.key !== 'Tab' || event.ctrlKey || event.metaKey) return;
+    const controls = [...dialog.querySelectorAll('a[href], button, input, select, textarea, [tabindex]')]
+      .filter(element => element.tabIndex >= 0 && !element.disabled && element.getClientRects().length);
+    const first = controls[0], last = controls.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
+      event.preventDefault(); last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault(); first?.focus();
+    }
+  });
   dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
 }
 document.addEventListener('keydown', event => { if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName) && !document.querySelector('dialog[open]')) { event.preventDefault(); $('search').focus(); } });

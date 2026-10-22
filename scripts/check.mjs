@@ -20,7 +20,7 @@ const html = await readFile(resolve(root, 'site/index.html'), 'utf8');
 for (const match of html.matchAll(/(?:src|href)="\.\/([^"?#]+)"/g)) await readFile(resolve(root, 'site', match[1]));
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 assert.equal(ids.length, new Set(ids).size, 'HTML IDs must be unique');
-for (const dir of ['site', 'scripts', 'test']) {
+for (const dir of ['site', 'scripts', 'test', 'e2e']) {
   const inspect = async path => { for (const file of await readdir(path, { withFileTypes: true })) { const target = join(path, file.name); if (file.isDirectory()) await inspect(target); else { const text = await readFile(target, 'utf8'); assert.ok(!/[A-Za-z]:[\\/]Users[\\/]/.test(text), `Local machine path in ${file.name}`); assert.ok(!/gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|fc-[a-f0-9]{32}/.test(text), `Potential credential in ${file.name}`); } } };
   await inspect(resolve(root, dir));
 }

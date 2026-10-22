@@ -2,6 +2,8 @@
 
 Checks performed on October 22, 2026.
 
+This records the initial release. Subsequent automated browser/accessibility coverage and its manual-review limits are documented in [browser testing](browser-testing.md); automatic catalog updates are documented in [automatic sync](automatic-sync.md).
+
 ## Automated
 
 - Node.js 24.22.1 on Windows: all 13 tests passed.
@@ -29,6 +31,6 @@ Screenshots: [desktop](explorer.png) and [mobile](mobile.png).
 
 ## Scope
 
-This is application and snapshot validation, not a fresh audit of all catalog links. Real mobile hardware, Safari, Firefox, and assistive-technology testing were not performed. Topic tags are heuristic. Saved resources depend on local browser storage, and catalog updates require a reviewed import and deployment.
+This is application and snapshot validation, not a fresh audit of all catalog links. At this initial-release checkpoint, real mobile hardware, Safari, Firefox, and assistive-technology testing were not performed. Topic tags are heuristic. Saved resources depend on local browser storage. The later automatic-sync workflow now imports and publishes validated catalog changes.
 
 GitHub validation and deployment results are recorded in the repository’s [Actions history](https://github.com/SeanShaffer88/dev-resource-explorer/actions).
