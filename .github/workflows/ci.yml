@@ -5,6 +5,9 @@ on:
   pull_request:
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,6 +22,10 @@ jobs:
     name: Browser and accessibility (${{ matrix.browser }})
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    container:
+      # Match @playwright/test; includes browsers and their Ubuntu system libraries.
+      image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:7852dc5a7d72f5fe458a597d690f6c42fbc8e9e26ddfa95f8e6ef552558d9bbf
+      options: --shm-size=1gb
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +37,6 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps ${{ matrix.browser }}
       - run: npm run test:browser -- --project=${{ matrix.browser }}
       - name: Retain browser report and failure evidence
         if: ${{ !cancelled() }}
