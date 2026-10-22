@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Automatically check the source catalog every 15 minutes on GitHub, validate changes, commit snapshots, and republish changed content.
+- Preserve import dates for unchanged data and retry missing or stale deployments using a public content fingerprint.
+- Retain the last good snapshot on failed validation or license changes; keep quiet repositories active with maintenance commits after 45 days.
+- Add integration tests for imports, provenance, failure preservation, and deployment decisions.
+
 ## 1.0.0 — 2026-10-22
 
 - Searchable catalog with category, collection, and inferred platform/language topic filters.

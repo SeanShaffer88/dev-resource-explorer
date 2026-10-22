@@ -4,3 +4,6 @@ Thumbs.db
 *.log
 .env*
 coverage/
+site/build.json
+site/data/*.tmp
+.test-work-*/

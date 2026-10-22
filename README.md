@@ -39,9 +39,19 @@ npm run check
 
 Node’s built-in test runner checks search, composed filters, duplicate preservation, sorting, query URLs, bookmark recovery, inferred tags, and unsafe link rejection. The check script verifies the catalog SHA-256, source metadata, license, asset paths, duplicate HTML IDs, and common accidental credential/path patterns. These checks do not audit the linked resources or replace a security review.
 
-## Refresh the catalog
+## Automatic catalog sync
 
-The deployed explorer uses a committed snapshot. Browsing never calls the GitHub API, and updates are deliberately reviewed before publishing.
+GitHub Actions checks the source catalog every 15 minutes, at minutes 7, 22, 37, and 52 of each hour. It also checks on pushes to `main` and manual runs of **Publish GitHub Pages**. Scheduling runs on GitHub and does not depend on a local computer. GitHub may delay scheduled jobs; the interval is not an exact delivery guarantee.
+
+Each run resolves the catalog's `main` branch to one commit and downloads its resource index and license from that commit. If the content changed, the workflow validates it, runs the tests, commits the snapshot as `github-actions[bot]`, and publishes it in the same workflow. It uses the repository's short-lived `GITHUB_TOKEN`; no personal token or cross-repository secret is required.
+
+Unchanged checks preserve the snapshot date and original source commit. Changes only to catalog documentation do not create snapshot commits. A published content fingerprint prevents unnecessary deployments and lets the next check retry a failed deployment, even when the snapshot was already committed. Validation failures keep the existing public site intact and appear in [Actions](https://github.com/SeanShaffer88/dev-resource-explorer/actions/workflows/pages.yml).
+
+After 45 days with no repository commits, a small maintenance commit keeps the authorized schedule active ahead of GitHub's 60-day public-repository inactivity cutoff. This does not change the catalog or republish unchanged content. Disable **Publish GitHub Pages** in Actions to pause the schedule and its maintenance commits; re-enable it to resume.
+
+Browsing still reads the bundled snapshot and never calls the GitHub API. See [automatic sync design and recovery](docs/automatic-sync.md) for the operational details.
+
+### Import manually
 
 ```sh
 # Download the latest public main commit, preserving its exact source bytes.
@@ -58,9 +68,9 @@ npm run check
 git diff -- site/data
 ```
 
-The importer copies `resources.json` and the upstream license, and writes `site/data/meta.json` with the commit, import date, counts, and SHA-256. It refuses non-HTTPS links, embedded credentials, invalid required fields, and an unexpected license family. Empty historical HTTP-status fields remain empty in the data and display as “Not recorded.” `--date YYYY-MM-DD` can explicitly record the actual import date; the default uses America/Chicago.
+The importer copies `resources.json` and the upstream license, and writes `site/data/meta.json` with the commit, import date, counts, and SHA-256. It refuses non-HTTPS links, embedded credentials, invalid required fields, and a license differing from the approved root `LICENSE` (apart from line endings and surrounding whitespace). Empty historical HTTP-status fields remain empty in the data and display as “Not recorded.” `--date YYYY-MM-DD` can explicitly record the actual import date; the default uses America/Chicago. Unchanged files do not get a new import date.
 
-Commit the reviewed snapshot and push to `main`. The Pages workflow tests it, uploads only `site/`, and deploys it. No scheduled import or third-party service is configured.
+Push application changes to `main` as usual. The workflow automatically reconciles the latest upstream catalog, tests it, and deploys only `site/` when its content differs from the published site. An intentionally pinned older catalog will be replaced on the next run unless automatic syncing is disabled.
 
 ## Publish your own copy
 
