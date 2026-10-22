@@ -37,6 +37,9 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Match container home ownership for Firefox
+        # Actions mounts this directory with the runner's UID, while the image uses root.
+        run: chown "$(id -u):$(id -g)" "$HOME"
       - run: npm run test:browser -- --project=${{ matrix.browser }}
       - name: Retain browser report and failure evidence
         if: ${{ !cancelled() }}
