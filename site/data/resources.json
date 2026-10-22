@@ -6646,7 +6646,7 @@
     "purpose": "MIT JavaScript 3D renderer; bundle modules locally for offline WebGL2 games. Native Android wrappers still require current WebView and device-specific GPU, lifecycle and touch testing.",
     "source": "general",
     "checked_on": "2026-10-22",
-    "review": "Frostline project check: official documentation read; npm 0.186.1 MIT metadata/integrity and bundled LICENSE inspected; rendered touch UI and software-WebGL browser tests passed. Physical Android device untested.",
+    "review": "Emberline project check: official documentation read; npm 0.186.1 MIT metadata/integrity and bundled LICENSE inspected; rendered touch UI and software-WebGL browser tests passed. Physical Android device untested.",
     "http_status": "200"
   },
   {
