@@ -6658,5 +6658,205 @@
     "checked_on": "2026-10-22",
     "review": "Official load-in-app-content documentation read for an offline game shell; local asset packaging, source restriction and no-network manifest checked. Physical-device lifecycle and startup remain to be tested.",
     "http_status": "200"
+  },
+  {
+    "name": "Claude Code Game Studios",
+    "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+    "category": "Game creation assets and automation",
+    "purpose": "Claude-oriented game-production template. Borrow concise art direction, asset provenance, and observed-playtest gates; adapt to the consuming agent and avoid installing its full hierarchy into an existing project.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT repository; README and art-bible workflow inspected. Not a Codex-native plugin or game runtime. Repository metadata checked 2026-10-22: last push 2026-10-19, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "UnrealClaude",
+    "url": "https://github.com/Natfii/UnrealClaude",
+    "category": "Game creation assets and automation",
+    "purpose": "Claude Code/editor and MCP integration for Unreal Engine 5.7. Relevant to Unreal projects; requires the engine and compatible editor plugin, not an upgrade path for a small WebView game.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Nested UnrealClaude/LICENSE inspected: MIT. README supports Win64/Linux/macOS; engine and Claude access have separate requirements. Repository metadata checked 2026-10-22: last push 2026-06-26, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Godot MCP",
+    "url": "https://github.com/Coding-Solo/godot-mcp",
+    "category": "Game creation assets and automation",
+    "purpose": "Launch and inspect Godot projects through MCP. Candidate for a deliberate Godot port; existing three.js projects do not gain Godot features by adding this server.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT metadata and README inspected; installed Godot plus Node.js >=18/npm required. Runtime compatibility not tested. Repository metadata checked 2026-10-22: last push 2026-04-16, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "ACE-Step 1.5",
+    "url": "https://github.com/ace-step/ACE-Step-1.5",
+    "category": "Game creation assets and automation",
+    "purpose": "Local music authoring model for exporting game soundtrack files. Generate on the development machine and ship audio, not the model. Select model/backend by available GPU memory.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT repository LICENSE inspected; Python 3.11-3.12, CUDA recommended; other backends documented. Variant memory requirements differ. Specific weight license/output suitability and runtime quality still require validation. Repository metadata checked 2026-10-22: last push 2026-10-11, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Blender Lab MCP",
+    "url": "https://projects.blender.org/lab/blender_mcp",
+    "category": "Game creation assets and automation",
+    "purpose": "Official Blender Lab bridge for scene inspection and Python automation. Small first-party candidate for modeling, material work, and export; requires Blender 5.1+, add-on, server and MCP client.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official Blender page, source overview and GPL3+ license reviewed. Executes generated Python with full Blender privileges; use a controlled asset workspace. Not installed or runtime tested.",
+    "http_status": "200"
+  },
+  {
+    "name": "MCP for Blender",
+    "url": "https://github.com/ahujasid/mcp-for-blender",
+    "category": "Game creation assets and automation",
+    "purpose": "Third-party Blender authoring/MCP bridge with render inspection and optional asset/model services. More features than the minimal Blender Lab bridge; audit external-service and telemetry options.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT metadata and README reviewed. Former ahujasid/blender-mcp URL redirects here; PyPI name mcp-for-blender. Optional premium/generation services are separate from local Blender operation. Repository metadata checked 2026-10-22: last push 2026-10-20, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "glTF Transform",
+    "url": "https://github.com/donmccurdy/glTF-Transform",
+    "category": "Game creation assets and automation",
+    "purpose": "Script GLB/glTF inspection, deduplication, resizing and optimization in a repeatable asset build pipeline. Fits three.js and engines that import glTF.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT metadata/README reviewed. Node LTS CLI and JS/TS SDK; bundle any chosen runtime decoders locally and verify extensions against target renderer. Repository metadata checked 2026-10-22: last push 2026-10-20, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "meshoptimizer / gltfpack",
+    "url": "https://github.com/zeux/meshoptimizer",
+    "category": "Game creation assets and automation",
+    "purpose": "Reduce mesh size and rendering cost; gltfpack optimizes glTF assets. Suitable after visual baseline checks, especially repeated props and LODs.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "MIT metadata/README reviewed. Compressed output can require matching runtime decoding; compare before/after shape, UVs, animation and device cost. Repository metadata checked 2026-10-22: last push 2026-10-14, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "KTX Software",
+    "url": "https://github.com/KhronosGroup/KTX-Software",
+    "category": "Game creation assets and automation",
+    "purpose": "KTX2 texture authoring/transcoding tools for mobile GPU texture budgets. Consider only after profiling; compressed download size differs from decoded GPU memory.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "LICENSE.md reviewed: primarily Apache-2.0 with bundled component licenses. etcdec is a documented non-open-source special case removable with LIBKTX_FEATURE_ETC_UNPACK=NO; review the actual build. Repository metadata checked 2026-10-22: last push 2026-10-22, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "glTF Validator",
+    "url": "https://github.com/KhronosGroup/glTF-Validator",
+    "category": "Game creation assets and automation",
+    "purpose": "Validate binary and JSON glTF, buffer access, references and specification conformance before integrating assets.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Apache-2.0 metadata/README and npm package metadata reviewed. Used locally on an Emberline candidate asset subset; validation does not replace visual or device tests. Repository metadata checked 2026-10-22: last push 2026-10-06, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Blender glTF importer/exporter",
+    "url": "https://github.com/KhronosGroup/glTF-Blender-IO",
+    "category": "Game creation assets and automation",
+    "purpose": "Official Khronos Blender glTF pipeline for baking/exporting engine-portable geometry, materials and animation.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Apache-2.0 metadata/README reviewed. Bundled with Blender 2.80+; use the version matching the installed Blender rather than copying current main into an older release. Repository metadata checked 2026-10-22: last push 2026-10-22, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Mobile MCP",
+    "url": "https://github.com/mobile-next/mobile-mcp",
+    "category": "Game creation assets and automation",
+    "purpose": "Local Android/iOS device and emulator control through accessibility snapshots or screenshot coordinates. Useful for native startup, save and lifecycle QA.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Apache-2.0 metadata/README/roadmap reviewed. Android WebView DOM support is still listed as planned; canvas games need screenshot/coordinate checks. Telemetry opt-out documented: MOBILEMCP_DISABLE_TELEMETRY=1. Remote-device services are separate. Repository metadata checked 2026-10-22: last push 2026-10-18, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Maestro",
+    "url": "https://github.com/mobile-dev-inc/Maestro",
+    "category": "Game creation assets and automation",
+    "purpose": "Repeatable Android UI flows for installation, menus, permissions and lifecycle smoke tests; complements renderer-level and manual gameplay checks.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Apache-2.0 metadata/README reviewed. Local CLI/Studio and MCP workflows documented. Device setup required; UI selectors do not identify arbitrary WebGL world objects. Repository metadata checked 2026-10-22: last push 2026-10-22, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "jsfxr",
+    "url": "https://github.com/chr15m/jsfxr",
+    "category": "Game creation assets and automation",
+    "purpose": "Author small synthesized feedback sounds and export WAV files for offline games. Good for rewards/tool/UI cues, less suited to realistic wind or character foley.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Unlicense metadata and README reviewed. Audition generated results and preserve authoring parameters; listing is not an integration or quality benchmark. Repository metadata checked 2026-10-22: last push 2026-05-05, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Audacity MCP",
+    "url": "https://github.com/xDarkzx/Audacity-MCP",
+    "category": "Game creation assets and automation",
+    "purpose": "Automate audio cleanup, editing and export through a local Audacity scripting bridge. Candidate for finishing recorded ambience or generated music.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Apache-2.0 metadata/README reviewed. Targets Audacity 3.x mod-script-pipe; maintainer states it cannot control Audacity 4. Do not assume compatibility with a newer installed Audacity. Repository metadata checked 2026-10-22: last push 2026-10-14, not archived.",
+    "http_status": "200"
+  },
+  {
+    "name": "Kenney Train Kit",
+    "url": "https://kenney.nl/assets/train-kit",
+    "category": "Game creation assets and automation",
+    "purpose": "Coherent train, carriage and rail models for a stylized railway game. Select a small subset, recolor and add original settlement details.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official ZIP downloaded; packaged License.txt inspected: CC0, Train Kit 1.1; credits include Kenney, Guus Vermeulen and Tony Schaer. Selected GLBs retained with provenance.",
+    "http_status": "200"
+  },
+  {
+    "name": "Kenney Nature Kit",
+    "url": "https://kenney.nl/assets/nature-kit",
+    "category": "Game creation assets and automation",
+    "purpose": "Low-poly pines, rocks, logs, bridges and camp props suitable for a consistent mobile environment. Snow treatment and game-specific silhouettes still need an art pass.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official ZIP downloaded; packaged License.txt inspected: CC0, Nature Kit 2.1. Selected GLBs retained with provenance; not all assets were validated.",
+    "http_status": "200"
+  },
+  {
+    "name": "Quaternius Ultimate Nature Pack",
+    "url": "https://quaternius.com/packs/ultimatenature.html",
+    "category": "Game creation assets and automation",
+    "purpose": "Alternative low-poly nature collection including pine/snowy variants; useful when it provides better silhouettes than the primary chosen kit.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official pack page and creator itch page reviewed: CC0; FBX/OBJ/Blend formats. Pack not downloaded or imported; conversion and exact selected-asset checks remain.",
+    "http_status": "200"
+  },
+  {
+    "name": "Poly Haven",
+    "url": "https://polyhaven.com/",
+    "category": "Game creation assets and automation",
+    "purpose": "Source HDRIs, textures and models for authored materials and lighting references. Downsample and stylize selected assets for mobile rather than importing high-resolution packs wholesale.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official license page inspected: downloadable assets CC0. Website/API terms are distinct; no asset downloaded in this check.",
+    "http_status": "200"
+  },
+  {
+    "name": "ambientCG",
+    "url": "https://ambientcg.com/",
+    "category": "Game creation assets and automation",
+    "purpose": "Source CC0 snow, wood, rock and other surfaces for a constrained material palette. Bake/resize only selected maps and budget decoded GPU memory.",
+    "source": "general",
+    "checked_on": "2026-10-22",
+    "review": "Official license documentation inspected: downloadable assets and previews CC0. No individual material downloaded or benchmarked in this check.",
+    "http_status": "200"
   }
 ]
