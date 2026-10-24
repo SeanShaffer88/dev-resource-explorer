@@ -6023,10 +6023,10 @@
     "name": "DiffImg (community fork)",
     "url": "https://github.com/arbruijn/diffimg",
     "category": "Testing verification and performance",
-    "purpose": "Standalone Qt/C++ image-difference GUI for screenshot/regression investigation. arbruijn community fork descends from sandsmark/lingo/xbee; independent Windows Qt 6.12 x64 revival: https://github.com/SeanShaffer88/DiffImg-Windows/releases/tag/v2.4.0 . GPLv3 binary distribution with corresponding source/notices. Equal dimensions, 8-bit white-matte RGB contract; compare WinMerge. Scoped tests, not a full codec security audit.",
+    "purpose": "Standalone Qt/C++ screenshot-difference GUI. arbruijn fork descends from sandsmark/lingo/xbee; independent Windows Qt 6.12 x64 revival: https://github.com/SeanShaffer88/DiffImg-Windows/releases/tag/v2.5.0 . Adds folder comparisons, profiles/ignore regions, synchronized review, standalone HTML reports and recoverable baseline approval. GPLv3 binary distribution with corresponding sources/notices; self-signed Authenticode is not public Windows trust. Equal dimensions and 8-bit white-matte RGB; compare WinMerge.",
     "source": "general",
-    "checked_on": "2026-10-22",
-    "review": "2026-10-22 upstream provenance/license sampling retained; follow-up Qt 6 Windows revival released: 22 native cases, 31 CLI checks, 126 bounded malformed/mutated image cases, ASan application/bundled-code checks, scaling and exact-ZIP deployment on hosted Windows Server 2022/2025. Qwt cross-path DLL byte identity and broader consumer-OS/security coverage remain limited",
+    "checked_on": "2026-10-23",
+    "review": "2026-10-23 scoped Windows revival 2.5.0: 36 native cases, 31 image CLI + 20 folder CLI cases, 126 bounded malformed/mutated-image cases, ASan application/bundled-code checks, four GUI scales, independent unsigned EXE identity and exact signed ZIP deployment on Windows Server 2022/2025. Backup/recovery, stale data and Windows junction cases exercised; no filesystem-wide atomicity, full codec audit or pristine consumer VM claim. Prior upstream provenance/license sampling retained.",
     "http_status": "200 (GitHub repository API; not an adoption audit)"
   },
   {
