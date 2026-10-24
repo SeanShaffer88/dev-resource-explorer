@@ -1,10 +1,10 @@
 {
   "source_repository": "https://github.com/SeanShaffer88/useful-dev-resources",
-  "source_commit": "26284a692e5ec6200598d7f3dc98161d2f2830ff",
-  "imported_on": "2026-10-23",
-  "entry_count": 690,
-  "resource_count": 686,
-  "category_count": 77,
-  "sha256": "2b9096a78e7d10da6c5a7305e1658b8922d4d9ebe91e956609e5ea646ad40725",
+  "source_commit": "197bec64f781de2bf8cdac464ae20fffa0de639d",
+  "imported_on": "2026-10-24",
+  "entry_count": 1192,
+  "resource_count": 1188,
+  "category_count": 89,
+  "sha256": "f8536a28d51bb46d3837f36f3d8deff93086528c8ebfced11876d564681836cc",
   "evidence": "Catalog import only. Original research dates and review scopes are preserved; this is not a fresh audit of linked resources."
 }
